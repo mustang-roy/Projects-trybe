@@ -24,6 +24,11 @@ input, textarea{
   resize: none;
 }
 
+img {
+  width: 100%;
+  z-index: 0;
+}
+
 .input {  
   padding: auto;
 }
