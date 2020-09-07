@@ -12,6 +12,18 @@ table {
   margin: 0px auto;
 }
 
+input {
+  margin: 0px 50px;
+  box-shadow: 1px 1px 1px rgb(0, 0, 0);
+  text-align: center;
+  width: 100px;
+}
+
+.inputline {
+  width: 30%;
+  margin: 0px auto;
+}
+
 .button {
   display: block;
   position: relative;
@@ -29,6 +41,10 @@ table {
 .button:active {
   background-color: rgb(255, 255, 255);
   color:  rgb(124, 0, 0);
+}
+
+.inline {
+  display: inline-block;
 }
 
 .palette td {
