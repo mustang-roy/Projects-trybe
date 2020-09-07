@@ -23,6 +23,14 @@ function destructCanvas() {
   }
 }
 
+function clearCanvas() {
+  let elementsClear = document.querySelectorAll('.td')
+
+  for (let item of elementsClear) {
+    item.style.backgroundColor = 'rgb(255, 255, 255)'
+  }
+}
+
 function changeColor(item) {
   let selectColor = document.querySelector('.selected');
   let style = window.getComputedStyle(selectColor)['background-color']
@@ -40,11 +48,13 @@ const colorOne = document.querySelector('.color1')
 const colorTwo = document.querySelector('.color2')
 const colorThree = document.querySelector('.color3')
 const colorFour = document.querySelector('.color4')
+const clearButton = document.querySelector('#clear-board')
 
 colorOne.addEventListener('click', () => {selectColor(colorOne)})
 colorTwo.addEventListener('click', () => {selectColor(colorTwo)})
 colorThree.addEventListener('click', () => {selectColor(colorThree)})
 colorFour.addEventListener('click', () => {selectColor(colorFour)})
+clearButton.addEventListener('click', clearCanvas)
 
 createCanvas(5)
 
