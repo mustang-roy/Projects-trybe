@@ -1,3 +1,20 @@
+function setSrcTemplate (origin, final) {
+  final.src = origin.src;
+  clearBorderTemplate();
+}
+
+function clearBorderTemplate() {
+  let templateImages = document.querySelectorAll('.sample-img')
+
+  for (const item of templateImages) {
+    if (item.src === imgMeme.src) {
+      item.style.border = '1px solid black'
+    } else {
+      item.style.border = ''
+    }
+  }
+}
+
 const btnInputImage = document.querySelector('#meme-insert')
 const textInput = document.querySelector('#text-input')
 const imgMeme = document.querySelector('#imgmeme')
@@ -6,6 +23,10 @@ const buttonFire = document.querySelector('#fire')
 const buttonWater = document.querySelector('#water')
 const buttonEarth = document.querySelector('#earth')
 const canvasMeme = document.querySelector('#meme-image-container')
+const meme1Button = document.querySelector('#meme-1')
+const meme2Button = document.querySelector('#meme-2')
+const meme3Button = document.querySelector('#meme-3')
+const meme4Button = document.querySelector('#meme-4')
 
 btnInputImage.addEventListener('change', () => {
   imgMeme.src = window.URL.createObjectURL(btnInputImage.files[0])
@@ -36,6 +57,11 @@ buttonEarth.addEventListener('click', () => {
   buttonEarth.style.border = '5px ridge rgb(33, 250, 40)';
 })
 
-
-
-
+meme1Button.addEventListener('click', () => {setSrcTemplate(meme1Button, imgMeme)
+})
+meme2Button.addEventListener('click', () => {setSrcTemplate(meme2Button, imgMeme)
+})
+meme3Button.addEventListener('click', () => {setSrcTemplate(meme3Button, imgMeme)
+})
+meme4Button.addEventListener('click', () => {setSrcTemplate(meme4Button, imgMeme)
+})
