@@ -25,8 +25,15 @@ input, textarea{
 }
 
 img {
+  position: relative;
   width: 100%;
   z-index: 0;
+  margin: 0px;
+}
+
+p {
+  margin: 0px;
+  text-align: center;
 }
 
 .input {  
@@ -43,7 +50,13 @@ img {
 }
 
 .meme-text {
+  display: block;
+  position: absolute;
+  width: 300px;
+  height: 120px;
+  top: 415px;
   text-shadow: 5px 5px 5px rgb(0, 0, 0);
   font-size: 30px;
-  color: rgb(255, 255, 255)
+  color: rgb(255, 255, 255);
+  word-wrap: break-word;
 }
