@@ -26,7 +26,8 @@ input, textarea{
 
 img {
   position: relative;
-  width: 100%;
+  width: 300px;
+  height: 300px;
   z-index: 0;
   margin: 0px;
 }
