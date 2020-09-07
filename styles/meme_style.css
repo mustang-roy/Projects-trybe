@@ -61,3 +61,29 @@ p {
   color: rgb(255, 255, 255);
   word-wrap: break-word;
 }
+
+.presets-image {
+  position: relative;
+  width: 398px;
+  margin: auto;
+  padding: 0px auto;
+}
+
+.button {
+  margin: 0px 20px;
+  width: 90px;
+  height: 40px;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 1px black;
+}
+
+.button#fire {
+  background-color: rgb(180, 33, 33);
+}
+.button#water {
+  background-color: rgb(33, 48, 180);
+}
+.button#earth {
+  background-color: rgb(33, 180, 40);
+}
