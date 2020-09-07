@@ -16,13 +16,35 @@ function createCanvas(value) {
   canvasElement.style.width = `${value * 40}px`
 }
 
+function destructCanvas() {
+  let elementChild = document.querySelectorAll('.tr')
+  for (let item of elementChild) {
+    canvasElement.removeChild(item)
+  }
+}
+
 function changeColor(item) {
   let selectColor = document.querySelector('.selected');
   let style = window.getComputedStyle(selectColor)['background-color']
-  item.style.backgroundColor = style
+  item.style.backgroundColor = style;
 }
 
-
+function selectColor(color) {
+  paletteElement = document.querySelector('.selected');
+  paletteElement.classList.remove('selected');
+  color.classList.add('selected')
+}
 
 const canvasElement = document.querySelector('.canvas')
-createCanvas(10)
+const colorOne = document.querySelector('.color1')
+const colorTwo = document.querySelector('.color2')
+const colorThree = document.querySelector('.color3')
+const colorFour = document.querySelector('.color4')
+
+colorOne.addEventListener('click', () => {selectColor(colorOne)})
+colorTwo.addEventListener('click', () => {selectColor(colorTwo)})
+colorThree.addEventListener('click', () => {selectColor(colorThree)})
+colorFour.addEventListener('click', () => {selectColor(colorFour)})
+
+createCanvas(5)
+
