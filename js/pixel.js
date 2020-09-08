@@ -51,6 +51,22 @@ function clearCanvas() {
   }
 }
 
+function generateRandomColor() {
+
+  return `${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}`
+}
+
+function createPalette() {
+  colorPalette[0].style.backgroundColor = 'rgb(0, 0, 0)'
+  colorPalette[0].addEventListener('click', () => {selectColor(colorPalette[0])})
+
+  for (let index = 1; index < colorPalette.length; index += 1) {
+    colorPalette[index].style.backgroundColor = 
+    'rgb(' + generateRandomColor() + ')'
+    colorPalette[index].addEventListener('click', () => {selectColor(colorPalette[index])})   
+  }
+}
+
 function changeColor(item) {
   let selectColor = document.querySelector('.selected');
   let style = window.getComputedStyle(selectColor)['background-color']
@@ -64,21 +80,13 @@ function selectColor(color) {
 }
 
 const canvasElement = document.querySelector('.canvas')
-const colorOne = document.querySelector('.color1')
-const colorTwo = document.querySelector('.color2')
-const colorThree = document.querySelector('.color3')
-const colorFour = document.querySelector('.color4')
+const colorPalette = document.querySelectorAll('.color')
 const clearButton = document.querySelector('#clear-board')
 const inputValue = document.querySelector('#board-size')
 const buttonInput = document.querySelector('#generate-board')
 
-colorOne.addEventListener('click', () => {selectColor(colorOne)})
-colorTwo.addEventListener('click', () => {selectColor(colorTwo)})
-colorThree.addEventListener('click', () => {selectColor(colorThree)})
-colorFour.addEventListener('click', () => {selectColor(colorFour)})
 clearButton.addEventListener('click', clearCanvas)
 buttonInput.addEventListener('click', constructCanvas)
 
-
+createPalette()
 createCanvas(5)
-
