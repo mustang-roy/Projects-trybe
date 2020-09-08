@@ -24,6 +24,25 @@ function destructCanvas() {
   }
 }
 
+function checkSizeCanvas(value) {
+  if (value === '') {
+    alert('Board inválido!')
+    return 5
+  } else if (Number(value) > 50) {
+    return 50;
+  } else if (Number(value) < 5) {
+    return 5;
+  }
+
+  return Number(value);
+}
+
+function constructCanvas() {
+  let dimension = checkSizeCanvas(inputValue.value);
+  destructCanvas()
+  createCanvas(dimension)
+}
+
 function clearCanvas() {
   let elementsClear = document.querySelectorAll('.td')
 
@@ -50,12 +69,16 @@ const colorTwo = document.querySelector('.color2')
 const colorThree = document.querySelector('.color3')
 const colorFour = document.querySelector('.color4')
 const clearButton = document.querySelector('#clear-board')
+const inputValue = document.querySelector('#board-size')
+const buttonInput = document.querySelector('#generate-board')
 
 colorOne.addEventListener('click', () => {selectColor(colorOne)})
 colorTwo.addEventListener('click', () => {selectColor(colorTwo)})
 colorThree.addEventListener('click', () => {selectColor(colorThree)})
 colorFour.addEventListener('click', () => {selectColor(colorFour)})
 clearButton.addEventListener('click', clearCanvas)
+buttonInput.addEventListener('click', constructCanvas)
+
 
 createCanvas(5)
 
