@@ -50,6 +50,12 @@ function removeCompleted (){
   }
 }
 
+function removeSelected() {
+  elementToRemove = document.querySelector('.selected')
+
+  listToDo.removeChild(elementToRemove)
+}
+
 function storageAllToDo() {
   const contentToStorage = document.querySelector('ol').innerHTML;
   localStorage.setItem('ToDoList', contentToStorage);
@@ -73,11 +79,13 @@ const textToDo = document.querySelector('#texto-tarefa');
 const btnAddToDo = document.querySelector('#criar-tarefa');
 const btnRemoveAll = document.querySelector('#apaga-tudo');
 const btnRemoveCompleted = document.querySelector('#remover-finalizados')
+const btnRemoveSelected = document.querySelector('#remover-selecionado')
 const btnSaveState = document.querySelector('#salvar-tarefas')
 
 btnAddToDo.addEventListener('click', createToDo)
 btnRemoveAll.addEventListener('click', removeAll)
 btnRemoveCompleted.addEventListener('click', removeCompleted)
 btnSaveState.addEventListener('click', storageAllToDo)
+btnRemoveSelected.addEventListener('click', removeSelected)
 
 window.onload = replaceToDo
