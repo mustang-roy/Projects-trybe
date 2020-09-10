@@ -4,7 +4,6 @@ function selectItem(item) {
   for (const iterator of itemList) {
     iterator.classList.remove('selected')
   }
-
   item.classList.add('selected')
 }
 
@@ -74,6 +73,53 @@ function replaceEvents() {
   }
 }
 
+function verifyMovement() {
+  let freeMove = {
+    'up': true,
+    'down': true,
+  }
+
+  let elementList = document.querySelectorAll('li');
+  let elementToMove = document.querySelector('.selected')
+  
+  let headItem = elementList[0];
+  let tailItem = elementList [elementList.length - 1]
+
+
+  if (elementToMove === headItem) {
+    freeMove.up = false
+  }
+
+  if (elementToMove === tailItem) {
+    freeMove.down = false
+  }
+
+  return freeMove
+}
+
+function moveUp() {
+  let move = verifyMovement()
+  let elementToMove = document.querySelector('.selected')
+  
+
+  if (move.up) {
+    let previousElement = elementToMove.previousElementSibling
+    elementToMove.parentNode.insertBefore(elementToMove, previousElement)
+  }
+
+}
+
+function moveDown() {
+  let move = verifyMovement()
+  let elementToMove = document.querySelector('.selected')
+  
+
+  if (move.down) {
+    let nextElement = elementToMove.nextElementSibling
+    elementToMove.parentNode.insertBefore(nextElement, elementToMove)
+  }
+}
+
 const listToDo = document.querySelector('#lista-tarefas')
 const textToDo = document.querySelector('#texto-tarefa');
 const btnAddToDo = document.querySelector('#criar-tarefa');
@@ -81,11 +127,15 @@ const btnRemoveAll = document.querySelector('#apaga-tudo');
 const btnRemoveCompleted = document.querySelector('#remover-finalizados')
 const btnRemoveSelected = document.querySelector('#remover-selecionado')
 const btnSaveState = document.querySelector('#salvar-tarefas')
+const btnMoveUp = document.querySelector('#mover-cima')
+const btnMoveDown = document.querySelector('#mover-baixo')
 
 btnAddToDo.addEventListener('click', createToDo)
 btnRemoveAll.addEventListener('click', removeAll)
 btnRemoveCompleted.addEventListener('click', removeCompleted)
 btnSaveState.addEventListener('click', storageAllToDo)
 btnRemoveSelected.addEventListener('click', removeSelected)
+btnMoveUp.addEventListener('click', moveUp)
+btnMoveDown.addEventListener('click', moveDown)
 
 window.onload = replaceToDo
