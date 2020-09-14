@@ -56,7 +56,8 @@ function checkAlternative(element){
 
 function selectElement(e){
   if (checkAlternative(e.target)) {
-    answerText.textContent = 'Acertou!' 
+    answerText.textContent = 'Acertou!'
+    scoreElement.textContent = parseInt(scoreElement.textContent) + 3
   } else {
     answerText.textContent = 'Errou! Tente novamente!'
   }
@@ -66,6 +67,7 @@ const colorBoard = document.querySelector('#color-board')
 const resetGame = document.querySelector('#reset-game')
 const answerText = document.querySelector('#answer')
 const rgbColor = document.querySelector('#rgb-color')
+const scoreElement = document.querySelector('#score')
 
 resetGame.addEventListener('click', restartGame)
 
