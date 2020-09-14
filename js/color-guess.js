@@ -2,6 +2,12 @@ function createRandom(maxValue) {
   return Math.floor(Math.random()*(maxValue+1))
 }
 
+function checkAlternative(e){
+  let colorActual = e.target.style.backgroundColor.slice(3)
+  console.log(rgbColor.textContent === colorActual)
+  return rgbColor.textContent === colorActual
+}
+
 function createRandomColor(){
   const red = createRandom(255)
   const green = createRandom(255)
@@ -14,6 +20,7 @@ function createColorBox(color){
   const newElement = document.createElement('div');
   newElement.style.backgroundColor = color;
   newElement.classList.add('ball');
+  newElement.addEventListener('click', checkAlternative)
   colorBoard.appendChild(newElement);
 }
 
