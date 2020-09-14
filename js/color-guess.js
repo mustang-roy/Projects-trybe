@@ -44,7 +44,8 @@ function restartGame() {
 }
 
 function selectPremierBall() {
-  let randomBall = document.querySelectorAll('.ball')[createRandom(6)]
+  let randomInterval = createRandom(6)
+  let randomBall = document.querySelectorAll('.ball')[randomInterval]
   let colorRandomBall = randomBall.style.backgroundColor  
   rgbColor.textContent = colorRandomBall.slice(3)
 }
