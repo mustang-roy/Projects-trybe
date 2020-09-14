@@ -7,11 +7,11 @@ function createRandomColor(){
 }
 
 function createColorBox(color){
-  let newElement = document.createElement('div')
-  console.log(color)
-  newElement.style.backgroundColor = color
-  newElement.classList.add('ball')
-  colorBoard.appendChild(newElement)  
+  let newElement = document.createElement('div');
+  console.log(color);
+  newElement.style.backgroundColor = color;
+  newElement.classList.add('ball');
+  colorBoard.appendChild(newElement);
 }
 
 
