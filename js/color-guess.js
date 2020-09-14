@@ -3,14 +3,15 @@ function createRandomColor(){
   const green = Math.floor(Math.random()*256)
   const blue = Math.floor(Math.random()*256)  
 
-  return `(${red}, ${green}, ${blue})`
+  return `rgb(${red}, ${green}, ${blue})`
 }
 
 function createColorBox(color){
-  newElement = document.createElement('div')
+  let newElement = document.createElement('div')
+  console.log(color)
   newElement.style.backgroundColor = color
-  colorBoard.appendChild(newElement)
-  
+  newElement.classList.add('ball')
+  colorBoard.appendChild(newElement)  
 }
 
 
@@ -22,3 +23,4 @@ function populateOptions() {
 }
 
 const colorBoard = document.querySelector('#color-board')
+const resetGame = document.querySelector('#reset-game')
