@@ -6,4 +6,12 @@ function createRandomColor(){
   return `(${red}, ${green}, ${blue})`
 }
 
+
+function populateOptions() {
+  for (let elemento = 0; elemento < 6; elemento += 1) {
+    let color = createRandomColor();
+    createElement(color);
+  }
+}
+
 const colorBoard = document.querySelector('#color-board')
