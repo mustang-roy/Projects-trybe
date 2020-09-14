@@ -8,7 +8,6 @@ function createRandomColor(){
 
 function createColorBox(color){
   const newElement = document.createElement('div');
-  console.log(color);
   newElement.style.backgroundColor = color;
   newElement.classList.add('ball');
   colorBoard.appendChild(newElement);
@@ -34,8 +33,13 @@ function createColorBoard() {
   populateOptions()
 }
 
+function restartGame() {
+  answerText.textContent = 'Escolha uma cor'
+  createColorBoard()
+}
 
 const colorBoard = document.querySelector('#color-board')
 const resetGame = document.querySelector('#reset-game')
+const answerText = document.querySelector('#answer')
 
-resetGame.addEventListener('click', createColorBoard)
+resetGame.addEventListener('click', restartGame)
