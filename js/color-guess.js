@@ -6,11 +6,18 @@ function createRandomColor(){
   return `(${red}, ${green}, ${blue})`
 }
 
+function createColorBox(color){
+  newElement = document.createElement('div')
+  newElement.style.backgroundColor = color
+  colorBoard.appendChild(newElement)
+  
+}
+
 
 function populateOptions() {
   for (let elemento = 0; elemento < 6; elemento += 1) {
     let color = createRandomColor();
-    createElement(color);
+    createColorBox(color);
   }
 }
 
