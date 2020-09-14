@@ -7,11 +7,18 @@ function createRandomColor(){
 }
 
 function createColorBox(color){
-  let newElement = document.createElement('div');
+  const newElement = document.createElement('div');
   console.log(color);
   newElement.style.backgroundColor = color;
   newElement.classList.add('ball');
   colorBoard.appendChild(newElement);
+}
+
+function destructBoardBox (){
+  const elementList = document.querySelectorAll('.ball')
+  for (const iterator of elementList) {
+    colorBoard.removeChild(iterator);
+  }
 }
 
 
@@ -22,5 +29,13 @@ function populateOptions() {
   }
 }
 
+function createColorBoard() {
+  destructBoardBox()
+  populateOptions()
+}
+
+
 const colorBoard = document.querySelector('#color-board')
 const resetGame = document.querySelector('#reset-game')
+
+resetGame.addEventListener('click', createColorBoard)
